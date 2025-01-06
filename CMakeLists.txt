@@ -1,5 +1,7 @@
+cmake_minimum_required(VERSION 3.5)
+project(Demo)
 set(CMAKE_CXX_STANDARD 23)
-
+#
 include(FetchContent)
 
 #find_package(xtensor)# CONFIG REQUIRED)
@@ -18,9 +20,11 @@ FetchContent_Declare(
 	GIT_PROGRESS TRUE
 )
 message("Fetched Bullet3 Physics Engine")
-
+#
 FetchContent_MakeAvailable(raylib)
 message("Raylib Made Availible")
+set(BUILD_CPU_EXAMPLES OFF)
+set(BUILD_UNIT_TESTS OFF)
 FetchContent_MakeAvailable(bullet3)
 message("Bullet3 Physics Engine Made Availible")
 include_directories(${bullet3_SOURCE_DIR}/src) # (1)
